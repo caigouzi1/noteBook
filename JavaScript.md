@@ -1,5 +1,33 @@
 # JavaScript
 
+## 基础函数
+
+### DOM
+
+#### 鼠标右击（右键）
+
+```javascript
+// 绑定右击事件
+bindEvent(divChess, 'mousedown', function (event){
+    // 禁止鼠标右键(右击)弹出选项卡
+    divChess.oncontextmenu = function(e){
+        return false;
+    } 
+    let target = event.target
+    // 判断是否为右击操作
+    if(event.button==2){
+        if(target.classList.contains('cell')){
+            toggleClass(target, 'flag')
+        }
+    }
+
+})
+```
+
+
+
+
+
 ## 工具函数集合
 
 ### DOM操作
