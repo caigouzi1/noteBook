@@ -1,5 +1,3 @@
-﻿# PHP
-
 ## 常用函数
 
 ### 时间函数
@@ -98,9 +96,47 @@ start /B apidoc -i extend\%1\dock -o doc\%1\dock
 
 
 
+## git使用
+
+### 基础推送操作
+
+```php
+git add .	//把文件添加到暂存区
+
+git commit -m '注释'	//提交到版本库
+
+git push	//推送
+```
 
 
 
+### 分支操作基础命令
+
+```php
+git branch dev  //创建本地分支 dev
+git checkout dev   //切换本地分支 dev
+
+git checkout -b dev   //相当于以上两条命令：创建 dev 
+
+//分支并切换
+//Switched to a new branch 'dev'
+=============================
+git branch //查看本地分支
+* dev
+  master
+=============================
+备注：git branch 命令会列出所有分支，当前分支前面会标一个*号。
+
+git branch -d dev   //删除本地分支 dev
+Deleted branch dev (was fec145a)
+```
+
+- **查看分支：git branch**
+- **创建分支：git branch <name>**
+- **切换分支：git checkout <name>**
+- **创建+切换分支：git checkout -b <name>**
+- **合并某分支到当前分支：git merge <name>**
+- **删除分支：git branch -d <name>**
 
 
 
