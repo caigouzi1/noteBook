@@ -1,4 +1,4 @@
-## 常用函数
+﻿## 常用函数
 
 ### 时间函数
 
@@ -79,20 +79,6 @@ cd到**apidoc.json**所在路径（即项目根目录）执行如下命令即可
 apidoc -i src/ -o apidoc/
 ```
 
-#### 一键运行
-
-bat文件
-
-```
-start /B apidoc -i extend\%1\bench -o doc\%1\bench
-start /B apidoc -i extend\%1\dock -o doc\%1\dock
-```
-
-运行命令
-
-```
-./doc.bat classic
-```
 
 
 
@@ -128,7 +114,6 @@ git branch //查看本地分支
 备注：git branch 命令会列出所有分支，当前分支前面会标一个*号。
 
 git branch -d dev   //删除本地分支 dev
-Deleted branch dev (was fec145a)
 ```
 
 - **查看分支：git branch**
