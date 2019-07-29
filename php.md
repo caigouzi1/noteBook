@@ -47,8 +47,8 @@ npm install apidoc -g
      * @apiSuccess {String} 	msg 返回信息
      * @apiSuccess {String} 	errorCode 错误编码
      * @apiSuccess {Object[]} 	data 返回数据
-     * @apiSuccess {Number} 	data.id 规则编码
-     * @apiSuccess {String} 	data.regular 过滤规则
+     * @apiSuccess {Number} 	data.id 编码
+     * @apiSuccess {String} 	data.xx xx
      *
      *
      * @apiSuccessExample 示例
