@@ -40,8 +40,8 @@ npm install apidoc -g
     /**
      * @api               {post} xx/xx/all 列表
      * @apiName           sort1
-     * @apiGroup          Qa
-     * @apiDescription    规则表
+     * @apiGroup          xx
+     * @apiDescription    xx
      *
      * @apiSuccess {String} 	result 结果 suc-成功，error-失败
      * @apiSuccess {String} 	msg 返回信息
