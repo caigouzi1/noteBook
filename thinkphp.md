@@ -98,14 +98,13 @@ config('配置文件名.配置参数','配置值');
   ```
 
 - 多层控制器
- ```php
+  ```php
   // 自动搜索控制器
   'controller_auto_search' => true,
- ```
-
+  ```
+  
 - 默认控制器，更改默认访问地址
-
-```php
+  ```php
 // 默认模块名
 'default_module'         => 'index',
 // 禁止访问模块
@@ -114,4 +113,5 @@ config('配置文件名.配置参数','配置值');
 'default_controller'     => 'Index',
 // 默认操作名
 'default_action'         => 'index',
-```
+  ```
+
