@@ -105,7 +105,7 @@ config('配置文件名.配置参数','配置值');
   
 - 默认控制器，更改默认访问地址
   ```php
-  // 默认模块名
+   // 默认模块名
    'default_module'         => 'index',
    // 禁止访问模块
    'deny_module_list'       => ['common'],
