@@ -1,0 +1,18 @@
+<?php
+
+namespace {%namespace%};
+
+use tests\TestCase;
+
+class {%className%} extends TestCase
+{
+    public function testAllFailure()
+    {
+        $this->visit('/{%BaseUrl%}/all')->seeJson(['errCode' => -1]);
+    }
+
+    public function testAllSuccess()
+    {
+        $this->makeRequest('post', '/{%BaseUrl%}/all')->seeJson(['errCode' => 0]);
+    }
+}

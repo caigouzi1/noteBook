@@ -1,0 +1,31 @@
+<?php
+
+namespace {%namespace%};
+
+use tests\TestCase;
+
+class {%className%} extends TestCase
+{
+    public function testAllFailure()
+    {
+        $this->visit('/{%BaseUrl%}/all')->seeJson(['errCode' => -1]);
+    }
+
+    public function testAllSuccess()
+    {
+        $this->makeRequest('post', '/{%BaseUrl%}/all')->seeJson(['errCode' => 0]);
+        $this->makeRequest('post', '/{%BaseUrl%}/all', [])->seeJson(['errCode' => 0]);
+    }
+
+    public function testSaveFailure()
+    {
+        $this->visit('/{%BaseUrl%}/save')->seeJson(['errCode' => -1]);
+        $this->makeRequest('post', '/{%BaseUrl%}/save')->seeJson(['errCode' => -2]);
+    }
+
+    public function testDeleteFailure()
+    {
+        $this->visit('/{%BaseUrl%}/delete')->seeJson(['errCode' => -1]);
+        $this->makeRequest('post', '/{%BaseUrl%}/delete')->seeJson(['errCode' => -2]);
+    }
+}
