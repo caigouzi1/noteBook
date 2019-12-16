@@ -39,3 +39,42 @@ git branch -a		//列出本地分支及远程分支
 git reset --hard origin master		//把HEAD指向master最新版本
 git pull 			//可以省略
  ```
+
+
+
+
+
+## 实用案例
+
+- ###  git 如何把分支代码合并到master主分支上
+
+1. ##### 首先切换到分支：
+
+  ```
+  git checkout dev
+  ```
+
+  使用git pull 把分支代码pull下来:
+
+ ```
+  git pull
+ ```
+
+ 3. ##### 切换到主分支:
+
+ ```
+  git checkout master
+ ```
+
+ 4. #####  把分支的代码merge到主分支:
+
+ ```
+  git merge dev
+ ```
+
+
+ 5. #####  git push推上去:  
+
+ ```
+  git push
+ ```
