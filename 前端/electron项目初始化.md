@@ -6,33 +6,36 @@
   ```javascript
   yarn create umi // 完成文件初始化操作
   yarn add electron --dev
+  yarn add electron-is-dev
   ```
 
 ### 2. 添加main.js
   ```javascript
 const { app, BrowserWindow } = require('electron')
+const isDev = require('electron-is-dev')
 const path = require('path')
 
 function createWindow() {
-  // 创建窗口
+  // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true // 允许渲染进程调用node
+      nodeIntegration: true
     }
   })
 
-  //加载8000端口到electron
-  mainWindow.loadURL('http://localhost:8000')
+  const urlLocation = isDev ? 'http://localhost:8000' : `file://${path.join(__dirname, './dist/index.html')}`
+
+  mainWindow.loadURL(urlLocation)
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
 app.on('ready', createWindow)
 
+// Quit when all windows are closed.
 app.on('window-all-closed', function () {
-
   if (process.platform !== 'darwin') app.quit()
 })
 
@@ -44,17 +47,17 @@ app.on('activate', function () {
 ### 3. 修改package.json		
   ```javascript
 {
-  "name": "ant-design-pro",
-  "version": "1.0.0",
-  "private": true,
-  "main": "main.js",
-  "description": "An out-of-box UI solution for enterprise applications",
-  "scripts": {
-    "build": "umi build",
-    "start": "umi dev",
-    "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none umi dev",
-    "dev:electron": "concurrently \"wait-on http://localhost:8000 && electron .\"  \" yarn start\" "
-  }
+    "name": "ant-design-pro",
+    "version": "1.0.0",
+    "private": true,
+    "main": "main.js",
+    "description": "An out-of-box UI solution for enterprise applications",
+    "scripts": {
+        "build": "umi build",
+        "start": "umi dev",
+        "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none umi dev",
+        "dev:electron": "concurrently \"wait-on http://localhost:8000 && electron .\"  \" yarn start\" "
+    }
 }
   ```
   ####   注意：
@@ -67,3 +70,15 @@ yarn add concurrently wait-on  --dev
 
 更多技巧参考0查看https://segmentfault.com/a/1190000019607202?utm_source=tag-newest
 
+### 4.使用electron-builder打包
+
+使用命令安装electron-builder
+```node
+yarn add electron-builder  --dev
+```
+
+注意：
+
+由于网络问题，需要添加环境变量：ELECTRON_MIRROR值为：http://npm.taobao.org/mirrors/electron/
+
+淘宝镜像地址：https://npm.taobao.org/mirrors/
